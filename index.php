@@ -7,13 +7,13 @@
    $array = array(
       "dklch30dcd38e5a"=>["Le Duong Tuan Anh", 2],
       "dklchdbf89b3361"=>["Pham Anh Quoc", 2],
-      "dklch56231d3385"=>["Le Thanh Binh", 1],
+      "dklch56231d3385"=>["Le Thanh Binh", 2],
       "dklchd76b5cf399"=>["Vu Duy Khanh",1],
-      "dklch94abf4cb32"=>["Tran Trung Hieu", 2],
+      "dklch94abf4cb32"=>["Tran Trung Hieu", 1],
       "dklch22a77d8638"=>["Vo Thi My Ny",1],
       "dklch99b858d35b"=>["Vo Thinh Chuan", 2],
       "dklche46f83710b"=>["Vo Thi Ngoc Duyen",1],
-      "dklcha1aeddb6fd"=>["Bui Chi Dung", 2],
+      "dklcha1aeddb6fd"=>["Bui Chi Dung", 1],
       "dklch4e05e7a4d8"=>["Le Van Hai", 1],
       "dklch71f51e7d68"=>["Pham Minh Hoang", 2],
       "dklch8095230438"=>["Tran Hao Nam", 1],
@@ -25,7 +25,7 @@
       "dklchf5bf948559"=>["Tran Kien Quoc", 2],
       "dklchda29902246"=>["Truong Minh An", 1],
       "dklchfce0f40d05"=>["Vo Truong An", 1],
-      "dklch826a2bb23b"=>["Tran Quang Huy", 1],
+      "dklch826a2bb23b"=>["Tran Quang Huy", 2],
       "dklch409d48cc47"=>["Pham Dang Dang Khoa", 1]
    );
 
