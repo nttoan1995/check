@@ -28,32 +28,30 @@
       "dklch826a2bb23b"=>["Tran Quang Huy", 2],
       "dklch409d48cc47"=>["Pham Dang Dang Khoa", 1]
    );
-
-   $team = array(
-      2,
-      2,
-      2,
-      1,
-      1,
-      1,
-      2,
-      1,
-      1,
-      1,
-      2,
-      1,
-      2,
-      2,
-      2,
-      2,
-      1,
-      2,
-      1,
-      1,
-      2,
-      1
+   $passcode = array(
+		"Le Duong Tuan Anh"=>"20312200303030012101203121003030320121103111201",
+		"Pham Anh Quoc"=>"20312201210120212120320032112020303030303120301",
+		"Le Thanh Binh"=>"20312200311031203020303030112100303030303200311",
+		"Vu Duy Khanh"=>"20312201210031303121202031112031212030303210321",
+		"Tran Trung Hieu"=>"20312200321031012011202121203101203120203030302",
+		"Vo Thi My Ny"=>"20312200302030212010313031312100320031203030320",
+		"Vo Thinh Chuan"=>"20312200321032112020320031103201210030303111202",
+		"Vo Thi Ngoc Duyen"=>"20312201211031003121212032003030313030103001202",
+		"Bui Chi Dung"=>"20312201201030112011211121012101202031212121210",
+		"Le Van Hai"=>"20312200310121103000311121103131201031012100320",
+		"Pham Minh Hoang"=>"20312200313030112120311030112110313121003120320",
+		"Tran Hao Nam"=>"20312200320030003210311030203030300031003030320",
+		"Huynh Viet Tham"=>"20312200301031103030320120312030301031003100311",
+		"Hoang Thien Nu"=>"20312200300120212101210030012111212121203121210",
+		"Do Huu Nhat Nguyen"=>"20312200312031312030321030103001210031212010311",
+		"Dao Hong Nho"=>"20312201203120303031202031303030301031203020321",
+		"Nguyen Thi My Tien"=>"20312200301031103120301030003200302120103121212",
+		"Tran Kien Quoc"=>"20312201212031112021212032103100320031103110321",
+		"Truong Minh An"=>"20312201210120103020321032103000302030203100312",
+		"Vo Truong An"=>"20312201212120312110300121203100300121003000311",
+		"Tran Quang Huy"=>"20312200320030203121201030212021202030203031202",
+		"Pham Dang Dang Khoa"=>"20312200310030003211210031003201203120303100313"
    );
-
    $msg = ""   
 ?>
 
@@ -81,31 +79,54 @@
 <body>
    <div class="limiter">
       <?php
-         function checkPassword($password, $array) {
-            return array_key_exists($password, $array);
-         }
+         function checkExists($key, $dict) {
+            return array_key_exists($key, $dict);
+		 }
+		 
          if (!empty($_POST['password'])) {
-            if (checkPassword($_POST['password'], $array)) {   
-               $msg =  'Hi ' . $array[$_POST['password']][0] . ".<br/>You belong to team " . $array[$_POST['password']][1];
+            if (checkExists($_POST['password'], $array)) {   
+               $msg =  'Hi <b><span style="color: yellow; ">' . $array[$_POST['password']][0] . "</span></b>.<br/>You belong to team <b>" . $array[$_POST['password']][1] . '</b>';
             }else {
-               $msg = 'Wrong code';
+				if (checkExists($_POST['password'], $passcode)) {
+					$msg = 'Welcome <b><span style="color: yellow; ">' . $_POST['password'] . '</span></b> to the game!<br/>Your key is: <b>' . $passcode[$_POST['password']] . '</b><br/><i><b>Hint:</b> If you think you are close but it is not working, try adding a leading 1!</i>';
+				}
+				else{
+					$msg = 'Anh là ai? Tôi không biết! Anh đi ra đi!';
+				}
             }
          }
+         else{
+               $msg = '';
+         }
       ?>
-      <div class="container-login100">
-            <div class="login100-pic js-tilt" data-tilt>
+	  
+      <div class="container-login100" style="text-align: center">
+			<row>
+				<div style="width: 100%">
+					<h1 style="color: white">Quartenary</h2><br/> 
+					<h3 style="color: white">What is the flag?</h2>
+				<div>
+			</row>
+			<hr/>
+
+			<div class="login100-pic js-tilt" data-tilt style="width: 100%">
                <img src="images/img-01.png" alt="IMG">
             </div>
+            <form style="padding-top: 20px; width: 100%" class="login100-form validate-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                  <div style="text-align: center; padding-bottom: 10px">
+                        <span style="color: white">
+                              Your Name/Passcode?
+                        </span>
+                        
+                  </div>  
 
-            <form class="login100-form validate-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-               <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                  <input class="input100" type="password" name="password" placeholder="What's your code?">
+               <div class="wrap-input100 validate-input" data-validate = "Required!">
+                  <input class="input100" name="password" placeholder="Enter here...">
                   <span class="focus-input100"></span>
                   <span class="symbol-input100">
                      <i class="fa fa-lock" aria-hidden="true"></i>
                   </span>
                </div>
-               
                <div class="container-login100-form-btn">
                   <button class="btn btn-lg btn-primary btn-block" type="submit">
                      Find Team!
